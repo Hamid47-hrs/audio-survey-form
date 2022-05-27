@@ -23,7 +23,10 @@ const Audio = (props) => {
                   type="radio"
                   name="rating"
                   value={ratingValue}
-                  onClick={() => setRating(ratingValue)}
+                  onClick={() => {
+                    setRating(ratingValue);
+                    props.setRate(ratingValue);
+                  }}
                 />
                 <FaStar
                   onMouseEnter={() => setHover(ratingValue)}

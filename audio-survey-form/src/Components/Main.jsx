@@ -8,64 +8,63 @@ function Main() {
   const [name, setName] = useState("");
   const [country, setCuontry] = useState("");
   const [age, setAge] = useState();
-  // const [jazz, setJazz] = useState({
-  //   audios: [
-  //     { name, rate },
-  //     { name, rate },
-  //   ],
-  //   Comment,
-  // });
-
+  const [jazz, setJazz] = useState({});
+  const [pop, setPop] = useState({});
+  console.log(jazz);
+  console.log(pop);
   return (
     <form>
       <Header>Audio Survey Form</Header>
-      <section className="info">
-        <p className="text-center mb-5">
-          Thank you for participating. <br />
-          Please Rate the following audio files
-        </p>
-        <UserInfo className=" w-25 d-flex flex-column gap-3">
-          <div className="name">
-            <label htmlFor="name">Your Name</label>
-            <input
-              id="name"
-              type="text"
-              placeholder="Enter Your Name"
-              value={name}
-              onChange={(e) => {
-                setName(e.currentTarget.value);
-              }}
-            />
-          </div>
+      <p className="text-center mb-5">
+        Thank you for participating. <br />
+        Please Rate the following audio files
+      </p>
 
-          <div className="country">
-            <label htmlFor="country">Nationality</label>
-            <input
-              type="text"
-              placeholder="Enter Your Country"
-              value={country}
-              onChange={(e) => {
-                setCuontry(e.currentTarget.value);
-              }}
-            />
-          </div>
+      <UserInfo className=" w-25 d-flex flex-column gap-3">
+        <div className="name">
+          <label htmlFor="name">Your Name</label>
+          <input
+            id="name"
+            type="text"
+            placeholder="Enter Your Name"
+            value={name}
+            onChange={(e) => {
+              setName(e.currentTarget.value);
+            }}
+          />
+        </div>
 
-          <div className="age">
-            <label htmlFor="age">Your Age</label>
-            <input
-              type="number"
-              placeholder="Your Age"
-              value={age}
-              onChange={(e) => {
-                setAge(e.currentTarget.value);
-              }}
-            />
-          </div>
-        </UserInfo>
+        <div className="country">
+          <label htmlFor="country">Nationality</label>
+          <input
+            type="text"
+            placeholder="Enter Your Country"
+            value={country}
+            onChange={(e) => {
+              setCuontry(e.currentTarget.value);
+            }}
+          />
+        </div>
+
+        <div className="age">
+          <label htmlFor="age">Your Age</label>
+          <input
+            type="number"
+            placeholder="Your Age"
+            value={age}
+            onChange={(e) => {
+              setAge(e.currentTarget.value);
+            }}
+          />
+        </div>
+      </UserInfo>
+
+      <section className="d-flex gap-3 justify-content-between p-4 border-top mt-5">
+        <AudioType type="Jazz" setData={setJazz} />
+        <AudioType type="pop" setData={setPop} />
+        <AudioType type="pop" setData={setPop} />
       </section>
-      <section className="body">
-        <AudioType type='Jazz'/>
-      </section>
+
       <button className="btn btn-primary my-5 mx-auto d-flex fs-4">
         Submit
       </button>
