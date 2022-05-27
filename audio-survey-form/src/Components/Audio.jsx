@@ -10,8 +10,8 @@ const Audio = (props) => {
   const [rating, setRating] = useState();
   const [hover, setHover] = useState();
   return (
-    <div className="mb-4 pb-3 border-bottom">
-      <div className="d-flex gap-2 mb-2">
+    <div className="mb-4 pb-4 border-bottom">
+      <div className="d-flex justify-content-between mb-3">
         <span>{props.name}</span>
         <div>
           {[...Array(5)].map((star, i) => {
