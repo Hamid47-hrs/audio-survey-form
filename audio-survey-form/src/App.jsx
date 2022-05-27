@@ -21,7 +21,7 @@ function App() {
           Thank you for participating. <br />
           Please Rate the following audio files
         </p>
-        <form className=" w-25 d-flex flex-column gap-3">
+        <Form className=" w-25 d-flex flex-column gap-3">
           <div className="name">
             <label htmlFor="name">Your Name</label>
             <input id="name" type="text" placeholder="Enter Your Name" />
@@ -36,7 +36,7 @@ function App() {
             <label htmlFor="age">Your Age</label>
             <input type="number" placeholder="Your Age" />
           </div>
-        </form>
+        </Form>
       </section>
       <section className="body">
         <article
@@ -49,8 +49,8 @@ function App() {
             <Audio name="Desitalk Exclusive Life" id={j2} />
             <Audio name="Nightlife Michael Kobrin" id={j3} />
             <Audio name="Spanish beach" id={j4} />
+          <textarea rows={4} className="w-100" placeholder="Comment Section"></textarea>
           </ul>
-          <textarea className="w-100" placeholder="Comment Section"></textarea>
         </article>
       </section>
     </div>
@@ -104,4 +104,23 @@ const Header = styled.h1`
   }
 `;
 
+const Form = styled.div`
+  border: 1px solid #eee;
+  padding-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-basis: 50%;
+  margin: auto;
+  input {
+    display: block;
+    width: 100%;
+    margin-bottom: 25px;
+    padding: 15px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    background-color: #f9f9f9;
+    caret-color: var(--mcolor);
+  }
+`;
 /*___________________________________________________________________________________*/
