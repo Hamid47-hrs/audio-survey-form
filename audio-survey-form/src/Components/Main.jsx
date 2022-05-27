@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router";
 import styled from "styled-components";
 import AudioType from "./AudioType";
 
@@ -7,13 +8,31 @@ import AudioType from "./AudioType";
 function Main() {
   const [name, setName] = useState("");
   const [country, setCuontry] = useState("");
-  const [age, setAge] = useState();
+  const [age, setAge] = useState(0);
   const [jazz, setJazz] = useState({});
   const [pop, setPop] = useState({});
-  console.log(jazz);
-  console.log(pop);
+  const navigate = useNavigate();
+
+  const Submit = (e) => {
+    e.preventDefault();
+    if (name.trim().length === 0) {
+      alert("Please enter valid name");
+      return;
+    }
+    if (country.trim().length === 0) {
+      alert("Please enter valid email");
+      return;
+    }
+    if (age < 1) {
+      alert("Please enter valid age");
+      return;
+    }
+    const finalData = { info: { name, country, age }, Ratings: { jazz, pop } };
+
+    navigate("/report");
+  };
   return (
-    <form>
+    <form onSubmit={Submit}>
       <Header>Audio Survey Form</Header>
       <p className="text-center mb-5">
         Thank you for participating. <br />
@@ -49,6 +68,7 @@ function Main() {
         <div className="age">
           <label htmlFor="age">Your Age</label>
           <input
+            min={0}
             type="number"
             placeholder="Your Age"
             value={age}
@@ -59,7 +79,7 @@ function Main() {
         </div>
       </UserInfo>
 
-      <section className="d-flex gap-3 justify-content-between p-4 border-top mt-5">
+      <section className=" flex-wrap d-flex gap-3 justify-content-between p-4 border-top mt-5">
         <AudioType type="Jazz" setData={setJazz} />
         <AudioType type="pop" setData={setPop} />
         <AudioType type="pop" setData={setPop} />
