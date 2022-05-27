@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 import styled from "styled-components";
 import AudioType from "./AudioType";
+import { collection, addDoc } from "firebase/firestore";
+import { db } from "../Firebase";
 
 /*___________________________________________________________________________________*/
 
@@ -11,6 +13,7 @@ function Main() {
   const [age, setAge] = useState(0);
   const [jazz, setJazz] = useState({});
   const [pop, setPop] = useState({});
+  const [rock, setRock] = useState({});
   const navigate = useNavigate();
 
   const Submit = (e) => {
@@ -27,7 +30,13 @@ function Main() {
       alert("Please enter valid age");
       return;
     }
-    const finalData = { info: { name, country, age }, Ratings: { jazz, pop } };
+
+    addDoc(collection(db, "users"), {
+      info: { name, country, age },
+      ratings: [jazz, pop, rock],
+    }).catch((e) => {
+      console.error("Error adding document: ", e.message);
+    });
 
     navigate("/report");
   };
@@ -82,7 +91,7 @@ function Main() {
       <section className=" flex-wrap d-flex gap-3 justify-content-between p-4 border-top mt-5">
         <AudioType type="Jazz" setData={setJazz} />
         <AudioType type="pop" setData={setPop} />
-        <AudioType type="pop" setData={setPop} />
+        <AudioType type="pop" setData={setRock} />
       </section>
 
       <button className="btn btn-primary my-5 mx-auto d-flex fs-4">

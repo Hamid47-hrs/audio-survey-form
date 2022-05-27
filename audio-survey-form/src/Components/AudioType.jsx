@@ -19,6 +19,7 @@ const AudioType = (props) => {
 
   useEffect(() => {
     props.setData({
+      type: props.type,
       audios: rates,
       comment,
     });
