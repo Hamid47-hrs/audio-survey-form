@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import styled from "styled-components";
 import AudioType from "./AudioType";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../Firebase";
+import axios from "axios";
 
 /*___________________________________________________________________________________*/
 
@@ -11,10 +12,33 @@ function Main() {
   const [name, setName] = useState("");
   const [country, setCuontry] = useState("");
   const [age, setAge] = useState(0);
-  const [jazz, setJazz] = useState({});
-  const [pop, setPop] = useState({});
-  const [rock, setRock] = useState({});
+  const [jazz, setJazz] = useState([]);
+  const [pop, setPop] = useState([]);
+  const [rock, setRock] = useState([]);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    axios
+      .get("http://127.0.0.1:8080/audio/get-pop-audio")
+      .then((response) => {
+        setPop(response.data);
+      })
+      .catch((err) => console.log(err));
+
+    axios
+      .get("http://127.0.0.1:8080/audio/get-rock-audio")
+      .then((response) => {
+        setRock(response.data);
+      })
+      .catch((err) => console.log(err));
+
+    axios
+      .get("http://127.0.0.1:8080/audio/get-jazz-audio")
+      .then((response) => {
+        setJazz(response.data);
+      })
+      .catch((err) => console.log(err));
+  }, []);
 
   const Submit = (e) => {
     e.preventDefault();
@@ -31,14 +55,14 @@ function Main() {
       return;
     }
 
-    addDoc(collection(db, "users"), {
-      info: { name, country, age },
-      ratings: [jazz, pop, rock],
-    }).catch((e) => {
-      console.error("Error adding document: ", e.message);
-    });
+    // addDoc(collection(db, "users"), {
+    //   info: { name, country, age },
+    //   ratings: [jazz, pop, rock],
+    // }).catch((e) => {
+    //   console.error("Error adding document: ", e.message);
+    // });
 
-    navigate("/report");
+    // navigate("/report");
   };
   return (
     <form onSubmit={Submit}>
@@ -89,9 +113,9 @@ function Main() {
       </UserInfo>
 
       <section className=" flex-wrap d-flex gap-3 justify-content-between p-4 border-top mt-5">
-        <AudioType type="Jazz" setData={setJazz} />
-        <AudioType type="pop" setData={setPop} />
-        <AudioType type="pop" setData={setRock} />
+        <AudioType type="Jazz" audio={jazz} setData={setJazz} />
+        <AudioType type="pop" audio={pop} setData={setPop} />
+        <AudioType type="rock" audio={rock} setData={setRock} />
       </section>
 
       <button className="btn btn-primary my-5 mx-auto d-flex fs-4">
