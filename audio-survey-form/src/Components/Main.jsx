@@ -4,6 +4,7 @@ import styled from "styled-components";
 import AudioType from "./AudioType";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../Firebase";
+import { Link } from "react-router-dom";
 
 /*___________________________________________________________________________________*/
 
@@ -45,6 +46,12 @@ function Main() {
   };
   return (
     <form onSubmit={Submit}>
+      <Link to={"/report"}>
+        <button className="btn btn-info position-absolute end-0 top-0 m-5 text-white">
+          See Reports
+        </button>
+      </Link>
+
       <Header>Audio Survey Form</Header>
       <p className="text-center mb-5">
         Thank you for participating. <br />

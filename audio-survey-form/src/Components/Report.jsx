@@ -27,10 +27,10 @@ const Report = () => {
           key={id}
           className="w-75 mx-auto p-4 my-5 border border-info d-flex flex-column"
         >
-          <article className="d-flex justify-content-around">
-            <span>Name: {info.name}</span>
-            <span>Nationality: {info.country}</span>
-            <span>Age: {info.age}</span>
+          <article className="d-flex justify-content-between">
+            <h5>Name: {info.name}</h5>
+            <h5>Nationality: {info.country}</h5>
+            <h5>Age: {info.age}</h5>
           </article>
 
           <article className="audioTypes mt-5 ">
