@@ -7,7 +7,7 @@ const Audio = (props) => {
   const [rating, setRating] = useState();
   const [hover, setHover] = useState();
   return (
-    <div className="mb-4 pb-4 border-bottom">
+    <div className="mb-4 pb-4 border-bottom" style={{ marginLeft: "-30px" }}>
       <div className="d-flex justify-content-between mb-3">
         <span>{props.name}</span>
         <div>

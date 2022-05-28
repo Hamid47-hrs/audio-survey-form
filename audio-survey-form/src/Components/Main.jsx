@@ -5,6 +5,8 @@ import AudioType from "./AudioType";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../Firebase";
 import axios from "axios";
+import { Link } from "react-router-dom";
+
 
 /*___________________________________________________________________________________*/
 
@@ -20,6 +22,7 @@ function Main() {
 
   //Ratings
   const navigate = useNavigate();
+  console.log(jazz);
 
   useEffect(() => {
     axios
@@ -70,6 +73,12 @@ function Main() {
   };
   return (
     <form onSubmit={Submit}>
+      <Link to={"/report"}>
+        <button className="btn btn-info position-absolute end-0 top-0 m-5 text-white">
+          See Reports
+        </button>
+      </Link>
+
       <Header>Audio Survey Form</Header>
       <p className="text-center mb-5">
         Thank you for participating. <br />
@@ -116,10 +125,11 @@ function Main() {
       </UserInfo>
 
       <section className=" flex-wrap d-flex gap-3 justify-content-between p-4 border-top mt-5">
-        <AudioType type="Jazz" audio={jazz} setData={setJazz} />
-        <AudioType type="pop" audio={pop} setData={setPop} />
-        <AudioType type="rock" audio={rock} setData={setRock} />
 
+        {/* Should be instead of 'type' an array audio sections containing audio files */}
+        <AudioType type="Jazz" setData={setJazz} />
+        <AudioType type="Pop" setData={setPop} />
+        <AudioType type="Rock" setData={setRock} />
       </section>
 
       <button className="btn btn-primary my-5 mx-auto d-flex fs-4">
