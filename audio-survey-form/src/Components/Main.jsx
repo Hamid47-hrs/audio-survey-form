@@ -8,9 +8,11 @@ import { db } from "../Firebase";
 /*___________________________________________________________________________________*/
 
 function Main() {
+  //Info
   const [name, setName] = useState("");
   const [country, setCuontry] = useState("");
   const [age, setAge] = useState(0);
+  //Ratings
   const [jazz, setJazz] = useState({});
   const [pop, setPop] = useState({});
   const [rock, setRock] = useState({});
@@ -18,7 +20,7 @@ function Main() {
 
   const Submit = (e) => {
     e.preventDefault();
-    if (name.trim().length === 0) {
+    if (name.value.trim().length === 0) {
       alert("Please enter valid name");
       return;
     }
@@ -54,7 +56,7 @@ function Main() {
           <input
             id="name"
             type="text"
-            placeholder="Enter Your Name"
+            placeholder="Enter your name"
             value={name}
             onChange={(e) => {
               setName(e.currentTarget.value);
@@ -66,7 +68,7 @@ function Main() {
           <label htmlFor="country">Nationality</label>
           <input
             type="text"
-            placeholder="Enter Your Country"
+            placeholder="Enter your country"
             value={country}
             onChange={(e) => {
               setCuontry(e.currentTarget.value);
@@ -79,7 +81,6 @@ function Main() {
           <input
             min={0}
             type="number"
-            placeholder="Your Age"
             value={age}
             onChange={(e) => {
               setAge(e.currentTarget.value);
@@ -90,8 +91,8 @@ function Main() {
 
       <section className=" flex-wrap d-flex gap-3 justify-content-between p-4 border-top mt-5">
         <AudioType type="Jazz" setData={setJazz} />
-        <AudioType type="pop" setData={setPop} />
-        <AudioType type="pop" setData={setRock} />
+        <AudioType type="Pop" setData={setPop} />
+        <AudioType type="Rock" setData={setRock} />
       </section>
 
       <button className="btn btn-primary my-5 mx-auto d-flex fs-4">
