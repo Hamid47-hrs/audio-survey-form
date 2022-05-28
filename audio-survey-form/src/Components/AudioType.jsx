@@ -44,22 +44,12 @@ const AudioType = (props) => {
   return (
     <>
       {[...Array(3)].map((a, id) => {
-        if (id === 0) {
-          const rates = rates1;
-          const setRates = setRates1();
-          const comment = comment1;
-          const setComment = setComment1();
-        } else if (id === 1) {
-          const rates = rates2;
-          const setRates = setRates2();
-          const comment = comment2;
-          const setComment = setComment2();
-        } else {
-          const rates = rates3;
-          const setRates = setRates3();
-          const comment = comment3;
-          const setComment = setComment3();
-        }
+        const rates = id === 0 ? rates1 : id === 1 ? rates2 : rates3;
+        const setRates =
+          id === 0 ? setRates1() : id === 1 ? setRates2() : setRates3();
+        const comment = id === 0 ? comment1 : id === 1 ? comment2 : comment3;
+        const setComment =
+          id === 0 ? setComment1() : id === 1 ? setComment2() : setComment3();
 
         return (
           <div
