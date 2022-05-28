@@ -17,6 +17,7 @@ function Main() {
   const [pop, setPop] = useState({});
   const [rock, setRock] = useState({});
   const navigate = useNavigate();
+  console.log(jazz);
 
   const Submit = (e) => {
     e.preventDefault();
