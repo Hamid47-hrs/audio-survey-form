@@ -1,12 +1,8 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router";
 import styled from "styled-components";
 import AudioType from "./AudioType";
-import { collection, addDoc } from "firebase/firestore";
-import { db } from "../Firebase";
 import axios from "axios";
 import { Link } from "react-router-dom";
-
 
 /*___________________________________________________________________________________*/
 
@@ -21,31 +17,29 @@ function Main() {
   const [rock, setRock] = useState([]);
 
   //Ratings
-  const navigate = useNavigate();
-  console.log(jazz);
 
-  useEffect(() => {
-    axios
-      .get("http://127.0.0.1:8080/audio/get-pop-audio")
-      .then((response) => {
-        setPop(response.data);
-      })
-      .catch((err) => console.log(err));
+  // useEffect(() => {
+  //   axios
+  //     .get("http://127.0.0.1:8080/audio/get-pop-audio")
+  //     .then((response) => {
+  //       setPop(response.data);
+  //     })
+  //     .catch((err) => console.log(err));
 
-    axios
-      .get("http://127.0.0.1:8080/audio/get-rock-audio")
-      .then((response) => {
-        setRock(response.data);
-      })
-      .catch((err) => console.log(err));
+  //   axios
+  //     .get("http://127.0.0.1:8080/audio/get-rock-audio")
+  //     .then((response) => {
+  //       setRock(response.data);
+  //     })
+  //     .catch((err) => console.log(err));
 
-    axios
-      .get("http://127.0.0.1:8080/audio/get-jazz-audio")
-      .then((response) => {
-        setJazz(response.data);
-      })
-      .catch((err) => console.log(err));
-  }, []);
+  //   axios
+  //     .get("http://127.0.0.1:8080/audio/get-jazz-audio")
+  //     .then((response) => {
+  //       setJazz(response.data);
+  //     })
+  //     .catch((err) => console.log(err));
+  // }, []);
 
   const Submit = (e) => {
     e.preventDefault();
@@ -62,15 +56,207 @@ function Main() {
       return;
     }
 
-    // addDoc(collection(db, "users"), {
-    //   info: { name, country, age },
-    //   ratings: [jazz, pop, rock],
-    // }).catch((e) => {
-    //   console.error("Error adding document: ", e.message);
-    // });
+    const newUser = {
+      userName: name,
+      nationality: country,
+      age: age,
+      popMusic_1: {
+        audios: [
+          {
+            name: pop.sections[0].audio[0].name,
+            rate: pop.sections[0].audio[0].rate,
+          },
+          {
+            name: pop.sections[0].audio[1].name,
+            rate: pop.sections[0].audio[1].rate,
+          },
+          {
+            name: pop.sections[0].audio[2].name,
+            rate: pop.sections[0].audio[2].rate,
+          },
+          {
+            name: pop.sections[0].audio[3].name,
+            rate: pop.sections[0].audio[3].rate,
+          },
+        ],
+        comment: pop.sections[0].comment,
+      },
+      popMusic_2: {
+        audios: [
+          {
+            name: pop.sections[1].audio[0].name,
+            rate: pop.sections[1].audio[0].rate,
+          },
+          {
+            name: pop.sections[1].audio[1].name,
+            rate: pop.sections[1].audio[1].rate,
+          },
+          {
+            name: pop.sections[1].audio[2].name,
+            rate: pop.sections[1].audio[2].rate,
+          },
+          {
+            name: pop.sections[1].audio[3].name,
+            rate: pop.sections[1].audio[3].rate,
+          },
+        ],
+        comment: pop.sections[1].comment,
+      },
+      popMusic_3: {
+        audios: [
+          {
+            name: pop.sections[2].audio[0].name,
+            rate: pop.sections[2].audio[0].rate,
+          },
+          {
+            name: pop.sections[2].audio[1].name,
+            rate: pop.sections[2].audio[1].rate,
+          },
+          {
+            name: pop.sections[2].audio[2].name,
+            rate: pop.sections[2].audio[2].rate,
+          },
+          {
+            name: pop.sections[2].audio[3].name,
+            rate: pop.sections[2].audio[3].rate,
+          },
+        ],
+        comment: pop.sections[2].comment,
+      },
+      rockMusic_1: {
+        audios: [
+          {
+            name: rock.sections[0].audio[0].name,
+            rate: rock.sections[0].audio[0].rate,
+          },
+          {
+            name: rock.sections[0].audio[1].name,
+            rate: rock.sections[0].audio[1].rate,
+          },
+          {
+            name: rock.sections[0].audio[2].name,
+            rate: rock.sections[0].audio[2].rate,
+          },
+          {
+            name: rock.sections[0].audio[3].name,
+            rate: rock.sections[0].audio[3].rate,
+          },
+        ],
+        comment: rock.sections[0].comment,
+      },
+      rockMusic_2: {
+        audios: [
+          {
+            name: rock.sections[1].audio[0].name,
+            rate: rock.sections[1].audio[0].rate,
+          },
+          {
+            name: rock.sections[1].audio[1].name,
+            rate: rock.sections[1].audio[1].rate,
+          },
+          {
+            name: rock.sections[1].audio[2].name,
+            rate: rock.sections[1].audio[2].rate,
+          },
+          {
+            name: rock.sections[1].audio[3].name,
+            rate: rock.sections[1].audio[3].rate,
+          },
+        ],
+        comment: rock.sections[1].comment,
+      },
+      rockMusic_3: {
+        audios: [
+          {
+            name: rock.sections[2].audio[0].name,
+            rate: rock.sections[2].audio[0].rate,
+          },
+          {
+            name: rock.sections[2].audio[1].name,
+            rate: rock.sections[2].audio[1].rate,
+          },
+          {
+            name: rock.sections[2].audio[2].name,
+            rate: rock.sections[2].audio[2].rate,
+          },
+          {
+            name: rock.sections[2].audio[3].name,
+            rate: rock.sections[2].audio[3].rate,
+          },
+        ],
+        comment: rock.sections[2].comment,
+      },
+      jazzMusic_1: {
+        audios: [
+          {
+            name: jazz.sections[0].audio[0].name,
+            rate: jazz.sections[0].audio[0].rate,
+          },
+          {
+            name: jazz.sections[0].audio[1].name,
+            rate: jazz.sections[0].audio[1].rate,
+          },
+          {
+            name: jazz.sections[0].audio[2].name,
+            rate: jazz.sections[0].audio[2].rate,
+          },
+          {
+            name: jazz.sections[0].audio[3].name,
+            rate: jazz.sections[0].audio[3].rate,
+          },
+        ],
+        comment: jazz.sections[0].comment,
+      },
+      jazzMusic_2: {
+        audios: [
+          {
+            name: jazz.sections[1].audio[0].name,
+            rate: jazz.sections[1].audio[0].rate,
+          },
+          {
+            name: jazz.sections[1].audio[1].name,
+            rate: jazz.sections[1].audio[1].rate,
+          },
+          {
+            name: jazz.sections[1].audio[2].name,
+            rate: jazz.sections[1].audio[2].rate,
+          },
+          {
+            name: jazz.sections[1].audio[3].name,
+            rate: jazz.sections[1].audio[3].rate,
+          },
+        ],
+        comment: jazz.sections[1].comment,
+      },
+      jazzMusic_3: {
+        audios: [
+          {
+            name: jazz.sections[2].audio[0].name,
+            rate: jazz.sections[2].audio[0].rate,
+          },
+          {
+            name: jazz.sections[2].audio[1].name,
+            rate: jazz.sections[2].audio[1].rate,
+          },
+          {
+            name: jazz.sections[2].audio[2].name,
+            rate: jazz.sections[2].audio[2].rate,
+          },
+          {
+            name: jazz.sections[2].audio[3].name,
+            rate: jazz.sections[2].audio[3].rate,
+          },
+        ],
+        comment: jazz.sections[2].comment,
+      },
+    };
 
-    // navigate("/report");
+    axios
+      .post("http://127.0.0.1:8080/user/audio-survey-form", newUser)
+      .then((res) => console.log(res))
+      .catch((err) => console.log("Error:" + err));
   };
+
   return (
     <form onSubmit={Submit}>
       <Link to={"/report"}>
@@ -125,7 +311,6 @@ function Main() {
       </UserInfo>
 
       <section className=" flex-wrap d-flex gap-3 justify-content-between p-4 border-top mt-5">
-
         {/* Should be instead of 'type' an array audio sections containing audio files */}
         <AudioType type="Jazz" setData={setJazz} />
         <AudioType type="Pop" setData={setPop} />
