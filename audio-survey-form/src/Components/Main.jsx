@@ -9,12 +9,16 @@ import axios from "axios";
 /*___________________________________________________________________________________*/
 
 function Main() {
+  //Info
   const [name, setName] = useState("");
   const [country, setCuontry] = useState("");
   const [age, setAge] = useState(0);
+
   const [jazz, setJazz] = useState([]);
   const [pop, setPop] = useState([]);
   const [rock, setRock] = useState([]);
+
+  //Ratings
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -78,7 +82,7 @@ function Main() {
           <input
             id="name"
             type="text"
-            placeholder="Enter Your Name"
+            placeholder="Enter your name"
             value={name}
             onChange={(e) => {
               setName(e.currentTarget.value);
@@ -90,7 +94,7 @@ function Main() {
           <label htmlFor="country">Nationality</label>
           <input
             type="text"
-            placeholder="Enter Your Country"
+            placeholder="Enter your country"
             value={country}
             onChange={(e) => {
               setCuontry(e.currentTarget.value);
@@ -103,7 +107,6 @@ function Main() {
           <input
             min={0}
             type="number"
-            placeholder="Your Age"
             value={age}
             onChange={(e) => {
               setAge(e.currentTarget.value);
@@ -116,6 +119,7 @@ function Main() {
         <AudioType type="Jazz" audio={jazz} setData={setJazz} />
         <AudioType type="pop" audio={pop} setData={setPop} />
         <AudioType type="rock" audio={rock} setData={setRock} />
+
       </section>
 
       <button className="btn btn-primary my-5 mx-auto d-flex fs-4">

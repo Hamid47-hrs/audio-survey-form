@@ -1,0 +1,62 @@
+[debug] [2022-05-28T09:00:37.293Z] ----------------------------------------------------------------------
+[debug] [2022-05-28T09:00:37.294Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2022-05-28T09:00:37.295Z] CLI Version:   11.0.1
+[debug] [2022-05-28T09:00:37.295Z] Platform:      darwin
+[debug] [2022-05-28T09:00:37.295Z] Node Version:  v16.14.2
+[debug] [2022-05-28T09:00:37.296Z] Time:          Sat May 28 2022 11:00:37 GMT+0200 (Eastern European Standard Time)
+[debug] [2022-05-28T09:00:37.296Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-05-28T09:00:37.339Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-05-28T09:00:37.340Z] > authorizing via signed-in user (ahmedkasi777@gmail.com)
+[debug] [2022-05-28T09:00:37.340Z] [iam] checking project audio-survey for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-05-28T09:00:37.341Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/audio-survey:testIamPermissions [none]
+[debug] [2022-05-28T09:00:37.341Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/audio-survey:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-05-28T09:00:38.282Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/audio-survey:testIamPermissions 200
+[debug] [2022-05-28T09:00:38.282Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/audio-survey:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-05-28T09:00:38.284Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/audio-survey [none]
+[debug] [2022-05-28T09:00:38.775Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/audio-survey 200
+[debug] [2022-05-28T09:00:38.776Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/audio-survey {"projectId":"audio-survey","projectNumber":"319919069714","displayName":"audio-survey","name":"projects/audio-survey","resources":{"hostingSite":"audio-survey","storageBucket":"audio-survey.appspot.com","locationId":"europe-west"},"state":"ACTIVE"}
+[info] 
+[info] === Deploying to 'audio-survey'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2022-05-28T09:00:38.778Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/audio-survey [none]
+[debug] [2022-05-28T09:00:39.192Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/audio-survey 200
+[debug] [2022-05-28T09:00:39.192Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/audio-survey {"projectId":"audio-survey","projectNumber":"319919069714","displayName":"audio-survey","name":"projects/audio-survey","resources":{"hostingSite":"audio-survey","storageBucket":"audio-survey.appspot.com","locationId":"europe-west"},"state":"ACTIVE"}
+[debug] [2022-05-28T09:00:39.193Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/319919069714/sites/audio-survey/versions [none]
+[debug] [2022-05-28T09:00:39.193Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/319919069714/sites/audio-survey/versions {"config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2022-05-28T09:00:40.908Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/319919069714/sites/audio-survey/versions 200
+[debug] [2022-05-28T09:00:40.909Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/319919069714/sites/audio-survey/versions {"name":"projects/319919069714/sites/audio-survey/versions/9798f56b63f62466","status":"CREATED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[audio-survey]: beginning deploy... 
+[info] i  hosting[audio-survey]: found 11 files in build 
+[debug] [2022-05-28T09:00:40.922Z] [hosting] uploading with 200 concurrency
+[debug] [2022-05-28T09:00:40.923Z] [hosting] hash cache [YnVpbGQ] not populated
+[debug] [2022-05-28T09:00:41.476Z] [hosting] hash cache [YnVpbGQ] stored for 11 files
+[debug] [2022-05-28T09:00:41.476Z] [hosting][hash queue][FINAL] {"max":549,"min":10,"avg":202.45454545454547,"active":0,"complete":11,"success":11,"errored":0,"retried":0,"total":11,"elapsed":553}
+[debug] [2022-05-28T09:00:41.476Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/319919069714/sites/audio-survey/versions/9798f56b63f62466:populateFiles [none]
+[debug] [2022-05-28T09:00:41.476Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/319919069714/sites/audio-survey/versions/9798f56b63f62466:populateFiles {"files":{"/asset-manifest.json":"1996328ab0f0061eee6b9b29e4be0c783abeb9bb986ad6db006663f574494f1a","/index.html":"b7828e1546ede338f523bb36aaad0ce5eae6d6d2ba9651d8986caa097ffeba9c","/static/js/main.29ff9203.js.LICENSE.txt":"131b701d3f0cbbdea91f932d80e2642530ede802b9ac50987ac954bb24debd46","/static/css/main.f85f9b49.css":"d9bbb4c4447737460763fd2553aea0e2695f74f86a60a90bede6a385bdb5a7f9","/static/css/main.f85f9b49.css.map":"e76422c0b310aee54357c4ef67db2e6b04a76dc233dc10cc4b21bb712263679b","/static/js/main.29ff9203.js":"6663cff22182aee01df23c82fc582f1bdead20dd9c1361fd27c70114640e9bd0","/static/media/desitalk-exclusive-life-is-strange-cold-breeze-acoustic-version-15168.bf425a64f18fb3674fdb.mp3":"22ac160c96544b22a6e481fb40ee2457e91acfd2b47970886a90d8f62c799eff","/static/media/spanish-beach-109195.9ea6adbaa06e1d86f95d.mp3":"ffc738502ee9fe5c1691bf3030c62060842074561e12182b6bd79e778ba36a24","/static/media/nightlife-michael-kobrin-95bpm-3783.87166441a86d404711a5.mp3":"da443f3f2c1f33b974e6344df9d9b175d82fd33f27da530758aa25a0737e50e4","/static/media/bossa-nova-piano-instrumental-brasil-5732.c72534ff50dbe32d3cb1.mp3":"d76ee4de965a7a9ea4ce3a36d559e0229f1e2490e89886379f73d081ea64e0a5","/static/js/main.29ff9203.js.map":"2aba752db1eb38d9555620a69ce7e74104eb6562b46098aae8bf8e8d37f002d0"}}
+[debug] [2022-05-28T09:00:42.806Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/319919069714/sites/audio-survey/versions/9798f56b63f62466:populateFiles 200
+[debug] [2022-05-28T09:00:42.806Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/319919069714/sites/audio-survey/versions/9798f56b63f62466:populateFiles {"uploadRequiredHashes":["ffc738502ee9fe5c1691bf3030c62060842074561e12182b6bd79e778ba36a24","da443f3f2c1f33b974e6344df9d9b175d82fd33f27da530758aa25a0737e50e4","d76ee4de965a7a9ea4ce3a36d559e0229f1e2490e89886379f73d081ea64e0a5"],"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/audio-survey/versions/9798f56b63f62466/files"}
+[debug] [2022-05-28T09:00:42.807Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/audio-survey/versions/9798f56b63f62466/files/ffc738502ee9fe5c1691bf3030c62060842074561e12182b6bd79e778ba36a24 [none]
+[debug] [2022-05-28T09:00:42.808Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/audio-survey/versions/9798f56b63f62466/files/ffc738502ee9fe5c1691bf3030c62060842074561e12182b6bd79e778ba36a24 [stream]
+[debug] [2022-05-28T09:00:42.810Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/audio-survey/versions/9798f56b63f62466/files/da443f3f2c1f33b974e6344df9d9b175d82fd33f27da530758aa25a0737e50e4 [none]
+[debug] [2022-05-28T09:00:42.810Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/audio-survey/versions/9798f56b63f62466/files/da443f3f2c1f33b974e6344df9d9b175d82fd33f27da530758aa25a0737e50e4 [stream]
+[debug] [2022-05-28T09:00:42.811Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/audio-survey/versions/9798f56b63f62466/files/d76ee4de965a7a9ea4ce3a36d559e0229f1e2490e89886379f73d081ea64e0a5 [none]
+[debug] [2022-05-28T09:00:42.811Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/audio-survey/versions/9798f56b63f62466/files/d76ee4de965a7a9ea4ce3a36d559e0229f1e2490e89886379f73d081ea64e0a5 [stream]
+[debug] [2022-05-28T09:00:42.811Z] [hosting][populate queue][FINAL] {"max":1332,"min":1332,"avg":1332,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":1336}
+[debug] [2022-05-28T09:00:42.812Z] [hosting] uploads queued: 3
+[debug] [2022-05-28T09:02:36.503Z] [uploadQueue] Retrying task ffc738502ee9fe5c1691bf3030c62060842074561e12182b6bd79e778ba36a24
+[debug] [2022-05-28T09:02:36.506Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/audio-survey/versions/9798f56b63f62466/files/ffc738502ee9fe5c1691bf3030c62060842074561e12182b6bd79e778ba36a24 [none]
+[debug] [2022-05-28T09:02:36.506Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/audio-survey/versions/9798f56b63f62466/files/ffc738502ee9fe5c1691bf3030c62060842074561e12182b6bd79e778ba36a24 [stream]
+[debug] [2022-05-28T09:03:07.843Z] [uploadQueue] Retrying task da443f3f2c1f33b974e6344df9d9b175d82fd33f27da530758aa25a0737e50e4
+[debug] [2022-05-28T09:03:07.845Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/audio-survey/versions/9798f56b63f62466/files/da443f3f2c1f33b974e6344df9d9b175d82fd33f27da530758aa25a0737e50e4 [none]
+[debug] [2022-05-28T09:03:07.845Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/audio-survey/versions/9798f56b63f62466/files/da443f3f2c1f33b974e6344df9d9b175d82fd33f27da530758aa25a0737e50e4 [stream]
+[debug] [2022-05-28T09:04:00.618Z] [uploadQueue] Retrying task d76ee4de965a7a9ea4ce3a36d559e0229f1e2490e89886379f73d081ea64e0a5
+[debug] [2022-05-28T09:04:00.620Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/audio-survey/versions/9798f56b63f62466/files/d76ee4de965a7a9ea4ce3a36d559e0229f1e2490e89886379f73d081ea64e0a5 [none]
+[debug] [2022-05-28T09:04:00.620Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/audio-survey/versions/9798f56b63f62466/files/d76ee4de965a7a9ea4ce3a36d559e0229f1e2490e89886379f73d081ea64e0a5 [stream]
+[debug] [2022-05-28T09:04:21.863Z] [uploadQueue] Retrying task d76ee4de965a7a9ea4ce3a36d559e0229f1e2490e89886379f73d081ea64e0a5
+[debug] [2022-05-28T09:04:21.865Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/audio-survey/versions/9798f56b63f62466/files/d76ee4de965a7a9ea4ce3a36d559e0229f1e2490e89886379f73d081ea64e0a5 [none]
+[debug] [2022-05-28T09:04:21.865Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/audio-survey/versions/9798f56b63f62466/files/d76ee4de965a7a9ea4ce3a36d559e0229f1e2490e89886379f73d081ea64e0a5 [stream]
+[debug] [2022-05-28T09:04:30.599Z] [uploadQueue] Retrying task ffc738502ee9fe5c1691bf3030c62060842074561e12182b6bd79e778ba36a24
+[debug] [2022-05-28T09:04:30.602Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/audio-survey/versions/9798f56b63f62466/files/ffc738502ee9fe5c1691bf3030c62060842074561e12182b6bd79e778ba36a24 [none]
+[debug] [2022-05-28T09:04:30.603Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/audio-survey/versions/9798f56b63f62466/files/ffc738502ee9fe5c1691bf3030c62060842074561e12182b6bd79e778ba36a24 [stream]
