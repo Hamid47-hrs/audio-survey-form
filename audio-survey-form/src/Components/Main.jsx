@@ -90,6 +90,7 @@ function Main() {
       </UserInfo>
 
       <section className=" flex-wrap d-flex gap-3 justify-content-between p-4 border-top mt-5">
+        {/* Should be instead of 'type' an array audio sections containing audio files */}
         <AudioType type="Jazz" setData={setJazz} />
         <AudioType type="Pop" setData={setPop} />
         <AudioType type="Rock" setData={setRock} />
