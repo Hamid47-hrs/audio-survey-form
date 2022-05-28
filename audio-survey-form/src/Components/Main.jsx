@@ -20,7 +20,7 @@ function Main() {
 
   const Submit = (e) => {
     e.preventDefault();
-    if (name.value.trim().length === 0) {
+    if (name.trim().length === 0) {
       alert("Please enter valid name");
       return;
     }
