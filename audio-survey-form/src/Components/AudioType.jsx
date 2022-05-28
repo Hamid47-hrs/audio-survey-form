@@ -14,8 +14,8 @@ const AudioType = (props) => {
   const [comment1, setComment1] = useState([""]);
   // Second Section
   const [rates2, setRates2] = useState([
-    { name: "Bossa Nova", rate: 0 },
-    { name: "Desitalk Exclusive Life", rate: 0 },
+    { name: "falling", rate: 0 },
+    { name: "see ", rate: 0 },
     { name: "Nightlife Michael Kobrin", rate: 0 },
     { name: "Spanish beach", rate: 0 },
   ]);
