@@ -11,7 +11,7 @@ const AudioType = (props) => {
     { name: "Nightlife Michael Kobrin", rate: 0 },
     { name: "Spanish beach", rate: 0 },
   ]);
-  const [comment1, setComment1] = useState([""]);
+  const [comment1, setComment1] = useState("");
   // Second Section
   const [rates2, setRates2] = useState([
     { name: "Bossa Nova", rate: 0 },
@@ -19,7 +19,7 @@ const AudioType = (props) => {
     { name: "Nightlife Michael Kobrin", rate: 0 },
     { name: "Spanish beach", rate: 0 },
   ]);
-  const [comment2, setComment2] = useState([""]);
+  const [comment2, setComment2] = useState("");
   // Third Section
   const [rates3, setRates3] = useState([
     { name: "Bossa Nova", rate: 0 },
@@ -27,7 +27,7 @@ const AudioType = (props) => {
     { name: "Nightlife Michael Kobrin", rate: 0 },
     { name: "Spanish beach", rate: 0 },
   ]);
-  const [comment3, setComment3] = useState([""]);
+  const [comment3, setComment3] = useState("");
 
   useEffect(() => {
     props.setData({
