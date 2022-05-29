@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
-import { collection, getDocs, limit } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 import { db } from "../Firebase";
-import { Navigate } from "react-router";
 import { Link } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
 
@@ -48,7 +47,6 @@ const Report = () => {
                             {audio.name}
                             <span>
                               {[...Array(4)].map((star, i) => {
-                                const ratingValue = i + 1;
                                 return (
                                   <FaStar
                                     color={

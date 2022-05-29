@@ -4,7 +4,7 @@ import { FaStar } from "react-icons/fa";
 /*___________________________________________________________________________________*/
 
 const Audio = (props) => {
-  const [rating, setRating] = useState();
+  const [rating, setRating] = useState(null);
   const [hover, setHover] = useState();
   return (
     <div className="mb-4 pb-4 border-bottom" style={{ marginLeft: "-30px" }}>
@@ -14,7 +14,7 @@ const Audio = (props) => {
           {[...Array(4)].map((star, i) => {
             const ratingValue = i + 1;
             const isRatedBefore = props.rates.some(
-              (audio) => audio.rate == ratingValue
+              (audio) => audio.rate === ratingValue && audio.name !== props.name
             );
 
             return (
@@ -26,11 +26,15 @@ const Audio = (props) => {
                   name="rating"
                   value={ratingValue}
                   onClick={() => {
-                    setRating(ratingValue);
+                    setRating((prev) =>
+                      prev === ratingValue ? null : ratingValue
+                    );
                     props.setRate((prev) =>
                       prev.map((audio) =>
                         audio.name === props.name
-                          ? { name: props.name, rate: ratingValue }
+                          ? audio.rate === ratingValue
+                            ? { name: props.name, rate: null }
+                            : { name: props.name, rate: ratingValue }
                           : audio
                       )
                     );
