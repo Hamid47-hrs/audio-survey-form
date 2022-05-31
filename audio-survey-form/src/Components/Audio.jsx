@@ -52,7 +52,7 @@ const Audio = (props) => {
           })}
         </div>
       </div>
-      <audio id={props.id} src={props.id} controls></audio>
+      <audio id={props.source} src={props.source} controls></audio>
     </div>
   );
 };
