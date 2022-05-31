@@ -6,26 +6,26 @@ import AudioSecion from "./AudioSecion";
 const AudioType = (props) => {
   // First Section
   const [rates1, setRates1] = useState([
-    { name: "Bossa Nova", rate: 0 },
-    { name: "Desitalk Exclusive Life", rate: 0 },
-    { name: "Nightlife Michael Kobrin", rate: 0 },
-    { name: "Spanish beach", rate: 0 },
+    { name: props.audioFile.section1[0].slice(10), rate: 0 },
+    { name: props.audioFile.section1[1].slice(10), rate: 0 },
+    { name: props.audioFile.section1[2].slice(10), rate: 0 },
+    { name: props.audioFile.section1[3].slice(10), rate: 0 },
   ]);
   const [comment1, setComment1] = useState("");
   // Second Section
   const [rates2, setRates2] = useState([
-    { name: "falling", rate: 0 },
-    { name: "see ", rate: 0 },
-    { name: "Nightlife Michael Kobrin", rate: 0 },
-    { name: "Spanish beach", rate: 0 },
+    { name: props.audioFile.section1[0].slice(10), rate: 0 },
+    { name: props.audioFile.section1[1].slice(10), rate: 0 },
+    { name: props.audioFile.section1[2].slice(10), rate: 0 },
+    { name: props.audioFile.section1[3].slice(10), rate: 0 },
   ]);
   const [comment2, setComment2] = useState("");
   // Third Section
   const [rates3, setRates3] = useState([
-    { name: "Bossa Nova", rate: 0 },
-    { name: "Desitalk Exclusive Life", rate: 0 },
-    { name: "Nightlife Michael Kobrin", rate: 0 },
-    { name: "Spanish beach", rate: 0 },
+    { name: props.audioFile.section1[0].slice(10), rate: 0 },
+    { name: props.audioFile.section1[1].slice(10), rate: 0 },
+    { name: props.audioFile.section1[2].slice(10), rate: 0 },
+    { name: props.audioFile.section1[3].slice(10), rate: 0 },
   ]);
   const [comment3, setComment3] = useState("");
 
@@ -44,18 +44,21 @@ const AudioType = (props) => {
     <>
       <AudioSecion
         type={props.type + -1}
+        audio={props.audioFile.section1}
         rates={rates1}
         setRates={setRates1}
         setComment={setComment1}
       />
       <AudioSecion
         type={props.type + -2}
+        audio={props.audioFile.section2}
         rates={rates2}
         setRates={setRates2}
         setComment={setComment2}
       />
       <AudioSecion
         type={props.type + -3}
+        audio={props.audioFile.section3}
         rates={rates3}
         setRates={setRates3}
         setComment={setComment3}
