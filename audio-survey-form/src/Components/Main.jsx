@@ -3,7 +3,6 @@ import styled from "styled-components";
 import AudioType from "./AudioType";
 import axios from "axios";
 import { Link } from "react-router-dom";
-
 /*___________________________________________________________________________________*/
 
 function Main() {
@@ -16,30 +15,154 @@ function Main() {
   const [pop, setPop] = useState([]);
   const [rock, setRock] = useState([]);
 
+  const [angry, setAngry] = useState({});
+  const [joy, setJoy] = useState({});
+  const [sad, setSad] = useState({});
+
+  const angryAudio = {
+    section1: [
+      "../Audios/angry/a1/a1-1-fs2-mm.wav",
+      "../Audios/angry/a1/a1-1-g.wav",
+      "../Audios/angry/a1/a1-1-tt2-mm.wav",
+      "../Audios/angry/a1/a1-1-tt2-ms.wav",
+    ],
+    section2: [
+      "../Audios/angry/a2/a2-1-fs2-mm.wav",
+      "../Audios/angry/a2/a2-1-g.wav",
+      "../Audios/angry/a2/a2-1-tt2-mm.wav",
+      "../Audios/angry/a2/a2-1-tt2-ms.wav",
+    ],
+    section3: [
+      "../Audios/angry/a3/a3-2-fs2-mm.wav",
+      "../Audios/angry/a3/a3-2-g.wav",
+      "../Audios/angry/a3/a3-2-tt2-mm.wav",
+      "../Audios/angry/a3/a3-2-tt2-ms.wav",
+    ],
+  };
+
+  const joyAudio = {
+    section1: [
+      "../Audios/joy/j1/j1-2-fs2-mm.wav",
+      "../Audios/joy/j1/j1-2-g.wav",
+      "../Audios/joy/j1/j1-2-tt2-mm.wav",
+      "../Audios/joy/j1/j1-2-tt2-ms.wav",
+    ],
+    section2: [
+      "../Audios/joy/j2/j2-2-fs2-mm.wav",
+      "../Audios/joy/j2/j2-2-g.wav",
+      "../Audios/joy/j2/j2-2-tt2-mm.wav",
+      "../Audios/joy/j2/j2-2-tt2-ms.wav",
+    ],
+    section3: [
+      "../Audios/joy/j3/j3-2-fs2-mm.wav",
+      "../Audios/joy/j3/j3-2-g.wav",
+      "../Audios/joy/j3/j3-2-tt2-mm.wav",
+      "../Audios/joy/j3/j3-2-tt2-ms.wav",
+    ],
+  };
+
+  const sadAudio = {
+    section1: [
+      "../Audios/sad/s1/s1-2-fs2-mm.wav",
+      "../Audios/sad/s1/s1-2-g.wav",
+      "../Audios/sad/s1/s1-2-tt2-mm.wav",
+      "../Audios/sad/s1/s1-2-tt2-ms.wav",
+    ],
+    section2: [
+      "../Audios/sad/s2/s2-2-fs2-mm.wav",
+      "../Audios/sad/s2/s2-2-g.wav",
+      "../Audios/sad/s2/s2-2-tt2-mm.wav",
+      "../Audios/sad/s2/s2-2-tt2-ms.wav",
+    ],
+    section3: [
+      "../Audios/sad/s3/s3-2-fs2-mm.wav",
+      "../Audios/sad/s3/s3-2-g.wav",
+      "../Audios/sad/s3/s3-2-tt2-mm.wav",
+      "../Audios/sad/s3/s3-2-tt2-ms.wav",
+    ],
+  };
+
   //Ratings
 
-  // useEffect(() => {
-  //   axios
-  //     .get("http://127.0.0.1:8080/audio/get-pop-audio")
-  //     .then((response) => {
-  //       setPop(response.data);
-  //     })
-  //     .catch((err) => console.log(err));
+  useEffect(() => {
+    axios
+      .get("http://127.0.0.1:8080/audio/get-angry-audio")
+      .then((response) => {
+        setAngry({
+          section1: [
+            response.data,
+            response.data,
+            response.data,
+            response.data,
+          ],
+          setction2: [
+            response.data,
+            response.data,
+            response.data,
+            response.data,
+          ],
+          section3: [
+            response.data,
+            response.data,
+            response.data,
+            response.data,
+          ],
+        });
+      })
+      .catch((err) => console.log(err));
 
-  //   axios
-  //     .get("http://127.0.0.1:8080/audio/get-rock-audio")
-  //     .then((response) => {
-  //       setRock(response.data);
-  //     })
-  //     .catch((err) => console.log(err));
+    axios
+      .get("http://127.0.0.1:8080/audio/get-joy-audio")
+      .then((response) => {
+        setJoy({
+          section1: [
+            response.data,
+            response.data,
+            response.data,
+            response.data,
+          ],
+          setction2: [
+            response.data,
+            response.data,
+            response.data,
+            response.data,
+          ],
+          section3: [
+            response.data,
+            response.data,
+            response.data,
+            response.data,
+          ],
+        });
+      })
+      .catch((err) => console.log(err));
 
-  //   axios
-  //     .get("http://127.0.0.1:8080/audio/get-jazz-audio")
-  //     .then((response) => {
-  //       setJazz(response.data);
-  //     })
-  //     .catch((err) => console.log(err));
-  // }, []);
+    axios
+      .get("http://127.0.0.1:8080/audio/get-sad-audio")
+      .then((response) => {
+        setSad({
+          section1: [
+            response.data,
+            response.data,
+            response.data,
+            response.data,
+          ],
+          setction2: [
+            response.data,
+            response.data,
+            response.data,
+            response.data,
+          ],
+          section3: [
+            response.data,
+            response.data,
+            response.data,
+            response.data,
+          ],
+        });
+      })
+      .catch((err) => console.log(err));
+  }, []);
 
   const Submit = (e) => {
     e.preventDefault();
@@ -60,133 +183,7 @@ function Main() {
       userName: name,
       nationality: country,
       age: age,
-      popMusic_1: {
-        audios: [
-          {
-            name: pop.sections[0].audio[0].name,
-            rate: pop.sections[0].audio[0].rate,
-          },
-          {
-            name: pop.sections[0].audio[1].name,
-            rate: pop.sections[0].audio[1].rate,
-          },
-          {
-            name: pop.sections[0].audio[2].name,
-            rate: pop.sections[0].audio[2].rate,
-          },
-          {
-            name: pop.sections[0].audio[3].name,
-            rate: pop.sections[0].audio[3].rate,
-          },
-        ],
-        comment: pop.sections[0].comment,
-      },
-      popMusic_2: {
-        audios: [
-          {
-            name: pop.sections[1].audio[0].name,
-            rate: pop.sections[1].audio[0].rate,
-          },
-          {
-            name: pop.sections[1].audio[1].name,
-            rate: pop.sections[1].audio[1].rate,
-          },
-          {
-            name: pop.sections[1].audio[2].name,
-            rate: pop.sections[1].audio[2].rate,
-          },
-          {
-            name: pop.sections[1].audio[3].name,
-            rate: pop.sections[1].audio[3].rate,
-          },
-        ],
-        comment: pop.sections[1].comment,
-      },
-      popMusic_3: {
-        audios: [
-          {
-            name: pop.sections[2].audio[0].name,
-            rate: pop.sections[2].audio[0].rate,
-          },
-          {
-            name: pop.sections[2].audio[1].name,
-            rate: pop.sections[2].audio[1].rate,
-          },
-          {
-            name: pop.sections[2].audio[2].name,
-            rate: pop.sections[2].audio[2].rate,
-          },
-          {
-            name: pop.sections[2].audio[3].name,
-            rate: pop.sections[2].audio[3].rate,
-          },
-        ],
-        comment: pop.sections[2].comment,
-      },
-      rockMusic_1: {
-        audios: [
-          {
-            name: rock.sections[0].audio[0].name,
-            rate: rock.sections[0].audio[0].rate,
-          },
-          {
-            name: rock.sections[0].audio[1].name,
-            rate: rock.sections[0].audio[1].rate,
-          },
-          {
-            name: rock.sections[0].audio[2].name,
-            rate: rock.sections[0].audio[2].rate,
-          },
-          {
-            name: rock.sections[0].audio[3].name,
-            rate: rock.sections[0].audio[3].rate,
-          },
-        ],
-        comment: rock.sections[0].comment,
-      },
-      rockMusic_2: {
-        audios: [
-          {
-            name: rock.sections[1].audio[0].name,
-            rate: rock.sections[1].audio[0].rate,
-          },
-          {
-            name: rock.sections[1].audio[1].name,
-            rate: rock.sections[1].audio[1].rate,
-          },
-          {
-            name: rock.sections[1].audio[2].name,
-            rate: rock.sections[1].audio[2].rate,
-          },
-          {
-            name: rock.sections[1].audio[3].name,
-            rate: rock.sections[1].audio[3].rate,
-          },
-        ],
-        comment: rock.sections[1].comment,
-      },
-      rockMusic_3: {
-        audios: [
-          {
-            name: rock.sections[2].audio[0].name,
-            rate: rock.sections[2].audio[0].rate,
-          },
-          {
-            name: rock.sections[2].audio[1].name,
-            rate: rock.sections[2].audio[1].rate,
-          },
-          {
-            name: rock.sections[2].audio[2].name,
-            rate: rock.sections[2].audio[2].rate,
-          },
-          {
-            name: rock.sections[2].audio[3].name,
-            rate: rock.sections[2].audio[3].rate,
-          },
-        ],
-        comment: rock.sections[2].comment,
-      },
-      jazzMusic_1: {
+      angry_1: {
         audios: [
           {
             name: jazz.sections[0].audio[0].name,
@@ -207,7 +204,7 @@ function Main() {
         ],
         comment: jazz.sections[0].comment,
       },
-      jazzMusic_2: {
+      angry_2: {
         audios: [
           {
             name: jazz.sections[1].audio[0].name,
@@ -228,7 +225,7 @@ function Main() {
         ],
         comment: jazz.sections[1].comment,
       },
-      jazzMusic_3: {
+      angry_3: {
         audios: [
           {
             name: jazz.sections[2].audio[0].name,
@@ -248,6 +245,132 @@ function Main() {
           },
         ],
         comment: jazz.sections[2].comment,
+      },
+      joy_1: {
+        audios: [
+          {
+            name: pop.sections[0].audio[0].name,
+            rate: pop.sections[0].audio[0].rate,
+          },
+          {
+            name: pop.sections[0].audio[1].name,
+            rate: pop.sections[0].audio[1].rate,
+          },
+          {
+            name: pop.sections[0].audio[2].name,
+            rate: pop.sections[0].audio[2].rate,
+          },
+          {
+            name: pop.sections[0].audio[3].name,
+            rate: pop.sections[0].audio[3].rate,
+          },
+        ],
+        comment: pop.sections[0].comment,
+      },
+      joy_2: {
+        audios: [
+          {
+            name: pop.sections[1].audio[0].name,
+            rate: pop.sections[1].audio[0].rate,
+          },
+          {
+            name: pop.sections[1].audio[1].name,
+            rate: pop.sections[1].audio[1].rate,
+          },
+          {
+            name: pop.sections[1].audio[2].name,
+            rate: pop.sections[1].audio[2].rate,
+          },
+          {
+            name: pop.sections[1].audio[3].name,
+            rate: pop.sections[1].audio[3].rate,
+          },
+        ],
+        comment: pop.sections[1].comment,
+      },
+      joy_3: {
+        audios: [
+          {
+            name: pop.sections[2].audio[0].name,
+            rate: pop.sections[2].audio[0].rate,
+          },
+          {
+            name: pop.sections[2].audio[1].name,
+            rate: pop.sections[2].audio[1].rate,
+          },
+          {
+            name: pop.sections[2].audio[2].name,
+            rate: pop.sections[2].audio[2].rate,
+          },
+          {
+            name: pop.sections[2].audio[3].name,
+            rate: pop.sections[2].audio[3].rate,
+          },
+        ],
+        comment: pop.sections[2].comment,
+      },
+      sad_1: {
+        audios: [
+          {
+            name: rock.sections[0].audio[0].name,
+            rate: rock.sections[0].audio[0].rate,
+          },
+          {
+            name: rock.sections[0].audio[1].name,
+            rate: rock.sections[0].audio[1].rate,
+          },
+          {
+            name: rock.sections[0].audio[2].name,
+            rate: rock.sections[0].audio[2].rate,
+          },
+          {
+            name: rock.sections[0].audio[3].name,
+            rate: rock.sections[0].audio[3].rate,
+          },
+        ],
+        comment: rock.sections[0].comment,
+      },
+      sad_2: {
+        audios: [
+          {
+            name: rock.sections[1].audio[0].name,
+            rate: rock.sections[1].audio[0].rate,
+          },
+          {
+            name: rock.sections[1].audio[1].name,
+            rate: rock.sections[1].audio[1].rate,
+          },
+          {
+            name: rock.sections[1].audio[2].name,
+            rate: rock.sections[1].audio[2].rate,
+          },
+          {
+            name: rock.sections[1].audio[3].name,
+            rate: rock.sections[1].audio[3].rate,
+          },
+        ],
+        comment: rock.sections[1].comment,
+      },
+      sad_3: {
+        audios: [
+          {
+            name: rock.sections[2].audio[0].name,
+            rate: rock.sections[2].audio[0].rate,
+          },
+          {
+            name: rock.sections[2].audio[1].name,
+            rate: rock.sections[2].audio[1].rate,
+          },
+          {
+            name: rock.sections[2].audio[2].name,
+            rate: rock.sections[2].audio[2].rate,
+          },
+          {
+            name: rock.sections[2].audio[3].name,
+            rate: rock.sections[2].audio[3].rate,
+          },
+        ],
+        comment: rock.sections[2].comment,
       },
     };
 
@@ -312,9 +435,9 @@ function Main() {
 
       <section className=" flex-wrap d-flex gap-3 justify-content-between p-4 border-top mt-5">
         {/* Should be instead of 'type' an array audio sections containing audio files */}
-        <AudioType type="Jazz" setData={setJazz} />
-        <AudioType type="Pop" setData={setPop} />
-        <AudioType type="Rock" setData={setRock} />
+        <AudioType type="Angry" audioFile={angryAudio} setData={setJazz} />
+        <AudioType type="Joy" audioFile={joyAudio} setData={setPop} />
+        <AudioType type="Sad" audioFile={sadAudio} setData={setRock} />
       </section>
 
       <button className="btn btn-primary my-5 mx-auto d-flex fs-4">
